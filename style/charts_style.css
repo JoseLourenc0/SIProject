@@ -1,0 +1,13 @@
+*{
+	margin: 0 auto;
+}	
+	div[class="chart"]{
+		display:inline-block;
+		width:49vw;
+		height: 70vh;
+	}
+	div[class="main-chart"]{
+		display:inline-block;
+		width:98vw;
+		height: 80vh;
+	}

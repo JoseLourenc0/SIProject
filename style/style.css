@@ -1,0 +1,37 @@
+*{color:#dedede;font-weight: bold;}
+	body{
+		font-size: 25px;
+		background:#363636 ;
+		margin: 0 auto;
+		text-align: center;
+	}
+	input{
+		background: #575757;
+		border-radius: 4px;
+		min-height: 5em;
+		min-width: 25%;
+	}
+	[type="submit"]{
+		cursor: pointer;
+		color:#86aeeb;
+		background: #0e63e3;
+	}
+	[type="submit"]:hover{
+		transition: .4s;
+		color:#d1ddf0;
+		transform: scale(1.02,1.02);
+	}
+	#estado{
+		max-width: 30%;
+		margin: 1em auto 0;
+	}
+	div[class="db_class"]{
+		float:right;
+		margin-right: 2em;
+		margin-bottom: 1em;
+		margin-top:3em;
+	}
+	div[class="db_class"] img{
+		width: 35px;
+		height: 35px;
+	}
