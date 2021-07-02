@@ -15,7 +15,7 @@
 		<option value="60">1 h</option>
 	</select>
 	<br><br>
-	<input type="submit" onclick="Envia()" value="ON/OFF"></input>
+	<input type="submit" onclick="sendState()" value="ON/OFF"></input>
 	<br><br>
 	<div>Estado:</div>
 	<div id="estado"></div>

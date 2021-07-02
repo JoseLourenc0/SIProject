@@ -9,7 +9,7 @@
 	if($stm->rowCount()>=1){
 		echo json_encode($stm->fetchAll(PDO::FETCH_ASSOC));
 	}else{
-		echo json_encode('Nenhum registro encontrado');
+		echo json_encode('State not found');
 	}
 
  ?>
