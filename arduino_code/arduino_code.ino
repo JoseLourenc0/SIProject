@@ -7,7 +7,7 @@
 
 #define sensorUmidade 2
 
-DHT dht(DHTPIN, DHTTYPE); //objeto criado identificando o pino e o tipo de dht para a biblioteca
+DHT dht(DHTPIN, DHTTYPE);
 
 const char* ssid="Cavalo de Troia";
 const char* password="91011355";
@@ -15,12 +15,12 @@ const char* password="91011355";
 void setup() {
   Serial.begin(115200);
   WiFi.begin(ssid,password);
-  Serial.print("Conectando...");
+  Serial.print("Connecting...");
   while(WiFi.status()!=WL_CONNECTED){
     delay(500);
     Serial.print(".");
   }
-  Serial.println("\nConcetado!");
+  Serial.println("\nConnected!");
   dht.begin();//DHT
 }
 bool getStatus(){
@@ -37,7 +37,7 @@ bool getStatus(){
           if(corpo_resposta=="0"){ESPstatus=false;}
         }
     }else{
-      Serial.print("Erro enviando POST, codigo: ");
+      Serial.print("Error sending POST, error id: ");
       Serial.println(codigo_resposta);
       ESPstatus=false;
     }
@@ -78,22 +78,44 @@ void InsereDados(String leitura){
   http.end();
 }
 
-float tempoEmMinutos(float t){
+float timeinMin(float t){
   return t*60000;
+}
+
+float getInterval(){
+    HTTPClient http;
+    http.begin("http://192.168.0.16/icproject/time.php");
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    int codigo_resposta=http.POST("senha=paodequeijo");
+    float ESPtime=0.08;
+    if(codigo_resposta>0){
+        if(codigo_resposta==200){
+          String TimeFromUser=http.getString();
+          int t = TimeFromUser.toInt();
+          if(t>=0){
+            ESPtime=t;
+          }
+        }
+    }
+    http.end();
+    Serial.print("Recording ESP32 Interval: ");
+    Serial.println(ESPtime);
+    return ESPtime;
 }
 
 void loop() {
   if(WiFi.status()==WL_CONNECTED){
     if(getStatus()==true){
-      Serial.println("Registro de dados ligado");
-      InsereDados("TextoLegal");
+      Serial.println("Data loggin enabled");
+      InsereDados("Some Information");
     }else{
-      Serial.println("Registro de dados desligado");
+      Serial.println("Data logging disabled");
     }
-    
+    delay(timeinMin(getInterval()));
   }else{
     Serial.println("Erro na conexão WIFI");
+    delay(timeinMin(0.25));
   }
-  delay(tempoEmMinutos(1));
+  Serial.println("==========================");
 
 }

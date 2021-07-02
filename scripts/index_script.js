@@ -3,6 +3,7 @@ var ligado=false;
 	var troca=0;
 
 	function Envia(){
+		let time = $('#selectTime').val()
 		if(ligado==false){
 			troca=1;
 		}
@@ -12,7 +13,7 @@ var ligado=false;
 		$.ajax({
 			url: 'troca.php',
 			method: 'POST',
-			data: {estado: troca},
+			data: {estado: troca,time: time},
 			dataType: 'json'
 		}).done(function(resultado){
 			console.log(resultado);

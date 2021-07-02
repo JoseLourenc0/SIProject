@@ -5,7 +5,16 @@
 	<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-	<br><br><br><br><br>
+	<br><br>
+	<select id="selectTime">
+		<option value="1">1 min</option>
+		<option value="5">5 min</option>
+		<option value="10">10 min</option>
+		<option value="20">20 min</option>
+		<option value="40">40 min</option>
+		<option value="60">1 h</option>
+	</select>
+	<br><br>
 	<input type="submit" onclick="Envia()" value="ON/OFF"></input>
 	<br><br>
 	<div>Estado:</div>

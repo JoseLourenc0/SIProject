@@ -35,3 +35,10 @@
 		width: 35px;
 		height: 35px;
 	}
+	select , option{
+		color: #363636;
+		min-height: 3em;
+		padding: 1em;
+		min-width: 7em;
+		text-align: center;
+	}
