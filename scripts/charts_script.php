@@ -7,7 +7,7 @@
 				['Data Hora','Umidade do Ar', 'Temperatura do Ar'],
 				<?php 
 					$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
-	                $stm= $pdo->prepare('SELECT * FROM tb_teste ORDER BY id DESC LIMIT 100');
+	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
 	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
 					for($i=0;$i<sizeof($dados);$i++){
@@ -38,7 +38,7 @@
 				['Data Hora', 'Umidade do Ar'],
 				<?php 
 					$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
-	                $stm= $pdo->prepare('SELECT * FROM tb_teste ORDER BY id DESC LIMIT 100');
+	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
 	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
 					for($i=0;$i<sizeof($dados);$i++){
@@ -68,7 +68,7 @@
 				['Data Hora','Umidade do Ar', 'Temperatura do Ar', 'Umidade do Solo'],
 				<?php 
 					$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
-	                $stm= $pdo->prepare('SELECT * FROM tb_teste ORDER BY id DESC LIMIT 100');
+	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
 	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
 					for($i=0;$i<sizeof($dados);$i++){

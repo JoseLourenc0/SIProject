@@ -8,8 +8,8 @@ header('Content-Type: application/json');
 
 	$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
 
-	$stm=$pdo->prepare('INSERT INTO tb_estado (estado,dh,timeesp) VALUES (:es,NOW(),:ti)');
-	//$stm=$pdo->prepare('INSERT INTO tb_estado (estado,dh) VALUES (:es,NOW())');//DATE_SUB(NOW(),INTERVAL 3 HOUR) para -3h
+	$stm=$pdo->prepare('INSERT INTO tb_state (estado,dh,timeesp) VALUES (:es,NOW(),:ti)');
+	//$stm=$pdo->prepare('INSERT INTO tb_state (estado,dh) VALUES (:es,NOW())');//DATE_SUB(NOW(),INTERVAL 3 HOUR) para -3h
 
 	$stm->bindValue(':es',$estadophp);
 	$stm->bindValue(':ti',$time);
