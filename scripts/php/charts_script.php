@@ -6,7 +6,8 @@
 			var data = google.visualization.arrayToDataTable([
 				['Data Hora','Umidade do Ar', 'Temperatura do Ar'],
 				<?php 
-					$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
+					require_once 'conn.php';
+					
 	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
 	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
@@ -37,7 +38,6 @@
 			var data = google.visualization.arrayToDataTable([
 				['Data Hora', 'Umidade do Ar'],
 				<?php 
-					$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
 	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
 	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
@@ -67,7 +67,6 @@
 			var data = google.visualization.arrayToDataTable([
 				['Data Hora','Umidade do Ar', 'Temperatura do Ar', 'Umidade do Solo'],
 				<?php 
-					$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
 	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
 	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));

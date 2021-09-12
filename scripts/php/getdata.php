@@ -1,8 +1,8 @@
 <?php 
 	header('Content-Type: application/json');
 
+	require_once 'conn.php';
 try{
-	$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
 
 	$stm= $pdo->prepare('SELECT state FROM tb_state ORDER BY id DESC LIMIT 1');
 	$stm->execute();

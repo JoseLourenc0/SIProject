@@ -1,11 +1,11 @@
 <?php 
 
-	$text=$_POST['text'];
-	$dhtemperature=$_POST['dhtemperature'];
-	$dhumidity=$_POST['dhumidity'];
-	$shumidity=$_POST['shumidity'];
+	$text = addslashes($_POST['text']);
+	$dhtemperature = addslashes($_POST['dhtemperature']);
+	$dhumidity = addslashes($_POST['dhumidity']);
+	$shumidity = addslashes($_POST['shumidity']);
 	
-	$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
+	require_once 'conn.php';
 
 	$stm= $pdo->prepare('INSERT INTO tb_history (shumidity,dhumidity,dtemperature,texto,nowf) VALUES (:sh,:dh,:dt,:te,NOW())'); //DATE_SUB(NOW(),INTERVAL 3 HOUR) for -3h UTC or depending what is the default time of your remote webserver
 	$stm->bindValue(':sh', $shumidity);
@@ -20,8 +20,3 @@
 		echo ('Failed inserting data');
 	}
     $pdo = null;
-
-
-
-
- ?>
