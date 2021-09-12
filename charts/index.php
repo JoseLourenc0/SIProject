@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title>Relatório</title>
-	<link rel="stylesheet" type="text/css" href="../style/charts_style.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/charts_style.css">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src="../scripts/charts_script.php"></script>
+	<script src="../scripts/php/charts_script.php"></script>
 </head>
 <meta charset="utf-8">
 <body>

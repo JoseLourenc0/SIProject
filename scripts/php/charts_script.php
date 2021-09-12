@@ -1,4 +1,4 @@
-//GRAFICO 1
+//CHART 1
 		google.charts.load('current',{'packages':['corechart']});
 		google.charts.setOnLoadCallback(drawChart);
 
@@ -28,8 +28,8 @@
 
 			chart.draw(data,options);
 		}
-    //GRAFICO 1
-    //GRAFICO 2
+    //CHART 1
+    //CHART 2
         google.charts.load('current',{'packages':['corechart']});
 		google.charts.setOnLoadCallback(drawChart2);
 
@@ -58,8 +58,8 @@
 
 			chart.draw(data,options);
 		}
-    //GRAFICO 2
-    //GRAFICO 3
+    //CHART 2
+    //CHART 3
         google.charts.load('current',{'packages':['corechart']});
 		google.charts.setOnLoadCallback(drawChart3);
 
@@ -90,4 +90,4 @@
 
 			chart.draw(data,options);
 		}
-    //GRAFICO 3
+    //CHART 3
