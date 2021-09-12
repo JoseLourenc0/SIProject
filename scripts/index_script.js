@@ -1,5 +1,4 @@
-
-var ligado=false;
+	var ligado=false;
 	var troca=0;
 
 	function sendState(){
@@ -13,7 +12,7 @@ var ligado=false;
 		$.ajax({
 			url: 'troca.php',
 			method: 'POST',
-			data: {estado: troca,time: time},
+			data: {state: troca,time: time},
 			dataType: 'json'
 		}).done(function(resultado){
 			console.log(resultado);
@@ -27,21 +26,29 @@ var ligado=false;
 			method:'GET',
 			dataType: 'json'
 		}).done(function(resultado){
-			console.log(resultado);
-			ligado=resultado[0].estado;
-			console.log(ligado);
-			if(ligado==false){
-				document.getElementById('estado').innerHTML='Data logging disabled';
-				document.getElementById('estado').style.background="#cf3a30";
-				document.getElementById('estado').style.color="#edcecc";
+			if(resultado!=='State not found'){
+				ligado=resultado[0].state;
+				if(ligado==false){
+
+					document.getElementById('state').innerHTML='Data logging disabled';
+					document.getElementById('state').style.background="#cf3a30";
+					document.getElementById('state').style.color="#edcecc";
+					
+				}else{
+
+					document.getElementById('state').innerHTML='Data logging enabled';
+					document.getElementById('state').style.background="#0c6921";
+					document.getElementById('state').style.color="#3ec95e";
+
+				}
 				
 			}else{
-				document.getElementById('estado').innerHTML='Data logging enabled';
-				document.getElementById('estado').style.background="#0c6921";
-				document.getElementById('estado').style.color="#3ec95e";
+				document.getElementById('state').innerHTML='State not found or not registered yet!';
+				document.getElementById('state').style.background="#cf3a30";
+				document.getElementById('state').style.color="#edcecc";
 			}
-			document.getElementById('estado').style.padding="0.6em 0 0 0";
-			document.getElementById('estado').style.height="2.3em";
+			document.getElementById('state').style.padding="0.6em 0 0 0";
+			document.getElementById('state').style.height="2.3em";
 		})
 	}
 	getESPState();

@@ -17,8 +17,8 @@
 	<br><br>
 	<input type="submit" onclick="sendState()" value="ON/OFF"></input>
 	<br><br>
-	<div>Estado:</div>
-	<div id="estado"></div>
+	<div>State:</div>
+	<div id="state"></div>
 
 <script src="jquery-3.6.0.min.js"></script>
 <script src="scripts/index_script.js"></script>
