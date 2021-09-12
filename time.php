@@ -1,6 +1,6 @@
 <?php 
     
-	$pdo = new PDO('mysql:host=localhost; dbname=banco;','root','');
+	$pdo = new PDO('mysql:host=localhost; dbname=db_siproject;','root','');
 	$stm= $pdo->prepare('SELECT * FROM tb_estado ORDER BY id DESC LIMIT 1');
 	$stm->execute();
 
