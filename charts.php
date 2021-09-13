@@ -12,5 +12,7 @@ if($_SESSION['logged']===false){
 require_once 'layout/header.html';
 
 require_once 'layout/charts.html';
+echo '<br><br>
+    <a style="text-align: center;" href="scripts/php/login/logout.php"><h4>LOGOUT</h4></a>';
 
 require_once 'layout/footer.html';
