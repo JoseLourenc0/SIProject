@@ -3,7 +3,7 @@
 #include "DHT.h"
 
 #define DHTPIN 4
-#define DHTTYPE DHT22 //if your DHT sensor is DHT USE DHTTYPE DHT11
+#define DHTTYPE DHT22 //if your DHT sensor is DHT 11 USE DHTTYPE DHT11
 
 #define humiditySensor 2
 
@@ -11,7 +11,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 const char* ssid=""; //SSID of your WiFi
 const char* password=""; //Password of your WiFi
-const String urlPage=""; //Here you use or your remote webserver url or the ip of your machine where is turned localhost (it's your ipv4 address, something like: '192.168.0.33')
+const String urlPage=""; //Here you use or your remote webserver url or the ip of your machine where is turned localhost (it's your ipv4 address, something like: '192.168.0.33'). If you're gonna use localhost insert '/SIProject' after your IPV4 address
 
 void setup() {
   Serial.begin(115200); //Default ESP32 frequency
@@ -26,16 +26,18 @@ void setup() {
 }
 bool getStatus(){
     HTTPClient http; //http object
-    http.begin("http://"+urlPage+"/icproject/status.php");
+    http.begin("http://"+urlPage+"/scripts/php/status.php");//Sets the page to access, as we're checking status defined by user, in this case we want to know if status = 1 or = 0
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     int response=http.POST("pin=brah");//use the correct pin, status.php is gonna get by POST method (check if it matches with what you're sending)
     bool ESPstatus=false;
     if(response>0){
       Serial.println("HTTP CODE: "+String(response));
         if(response==200){
-          String corpo_resposta=http.getString();
-          if(corpo_resposta=="1"){ESPstatus=true;}
-          if(corpo_resposta=="0"){ESPstatus=false;}
+          String echoStatus=http.getString();
+          Serial.print("STATUS: ");
+          Serial.println(echoStatus);
+          if(echoStatus=="1"){ESPstatus=true;}
+          if(echoStatus=="0"){ESPstatus=false;}
         }
     }else{
       Serial.print("Error sending POST, error id: ");
@@ -69,7 +71,7 @@ float getSoilMoisture(){
 void insertData(String l){
   HTTPClient http;
   String d="text="+l+"&dhtemperature="+getTemperature()+"&dhumidity="+getHumidity()+"&shumidity="+getSoilMoisture();
-  http.begin("http://"+urlPage+"/icproject/insertdata.php");
+  http.begin("http://"+urlPage+"/scripts/php/insertdata.php");
   http.addHeader("Content-Type","application/x-www-form-urlencoded");
   int response=http.POST(d);
   if(response>0){
@@ -84,7 +86,7 @@ float timeinMin(float t){
 
 float getInterval(){
     HTTPClient http;
-    http.begin("http://"+urlPage+"/icproject/time.php");
+    http.begin("http://"+urlPage+"/scripts/php/time.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     int response=http.POST("pin=brah");
     float ESPtime=1;//Interval setted to 1 min in case it fails to request interval by user
@@ -113,7 +115,7 @@ void loop() {
     }
     delay(timeinMin(getInterval()));
   }else{
-    Serial.println("Erro na conexão WIFI");
+    Serial.println("WIFI Connection ERROR");
     delay(timeinMin(0.25));
   }
   Serial.println("==========================");

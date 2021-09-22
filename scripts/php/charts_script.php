@@ -1,3 +1,4 @@
+<script>
 //CHART 1
 		google.charts.load('current',{'packages':['corechart']});
 		google.charts.setOnLoadCallback(drawChart);
@@ -90,3 +91,4 @@
 			chart.draw(data,options);
 		}
     //CHART 3
+</script>

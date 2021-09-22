@@ -14,7 +14,7 @@ function sendState(){
 
 	$.ajax({
 
-		url: 'scripts/php/troca.php',
+		url: 'scripts/php/changestatus.php',
 		method: 'POST',
 		data: {
 			state,
