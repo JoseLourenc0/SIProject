@@ -13,20 +13,14 @@ require_once 'scripts/php/verifydata.php';
 
 require_once 'layout/header.html';
 
+require_once 'layout/charts.html';
+
 if($length<=10)
     {
     echo 'THERE ARE NOT SUFFICIENT DATA TO GENERATE A CHART';
     }
 else{
-    require_once 'layout/charts.html';
     require_once 'scripts/php/charts_script.php';
     }
-echo '
-    <br>
-    <br>
-    <a style="text-align: center;" href="scripts/php/login/logout.php">
-        <h4>LOGOUT</h4>
-    </a>
-    ';
 
 require_once 'layout/footer.html';

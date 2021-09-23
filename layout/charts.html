@@ -1,12 +1,32 @@
-<head>
 	<title>Charts</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/charts_style.css">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="scripts/js/charts.js"></script>
 </head>
 <meta charset="utf-8">
 <body>
+
+	<nav class="navbar navbar-expand-custom navbar-mainbg">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<div class="hori-selector">
+					<div class="left"></div><div class="right"></div>
+				</div>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="charts.php"><i class="far fa-chart-bar"></i>Charts</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="scripts/php/login/logout.php"><img title="Logout" style="filter: invert(100%);" src="assets/img/logout.png" height="25px" width="25px">LOGOUT</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
     <section>
-	<div id="graficoLinha" class="chart"></div>
-	<div id="graficoLinha2" class="chart"></div>
-	<div id="graficoLinha3" class="main-chart"></div>
+	<div id="chart1" class="chart"></div>
+	<div id="chart2" class="chart"></div>
+	<div id="chart3" class="main-chart"></div>
 	</section>

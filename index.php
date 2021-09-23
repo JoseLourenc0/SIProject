@@ -7,13 +7,10 @@ $_SESSION['logged'] = $_SESSION['logged'] ?? false;
 
 require_once 'layout/header.html';
 
-
-
-
 if($_SESSION['logged']){
+
     require_once 'layout/index.html';
-    echo '<br><br>
-    <a style="text-align: center;" href="scripts/php/login/logout.php"><h4>LOGOUT</h4></a>';
+
 }else{
     require_once 'layout/login.html';
     if(!$_SESSION['logged'] && !$_SESSION['fa'])

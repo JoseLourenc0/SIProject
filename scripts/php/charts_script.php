@@ -5,28 +5,28 @@
 
 		function drawChart(){
 			var data = google.visualization.arrayToDataTable([
-				['Data Hora','Umidade do Ar', 'Temperatura do Ar'],
+				['DATE','Air Humidity', 'Air Temperature'],
 				<?php 
 					require_once 'conn.php';
 					
 	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
-	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
-					for($i=0;$i<sizeof($dados);$i++){
-						$temperaturaAr = $dados[$i]['dtemperature'];
-						$umidadeAr = $dados[$i]['dhumidity'];
-						$dataHora = $dados[$i]['nowf'];
+	                $data = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
+					for($i=0;$i<sizeof($data);$i++){
+						$airTemp = $data[$i]['dtemperature'];
+						$airHum = $data[$i]['dhumidity'];
+						$date = $data[$i]['nowf'];
 				 ?>
-				 ['<?php echo $dataHora ?>',<?php echo $umidadeAr ?>,<?php echo $temperaturaAr ?>],
+				 ['<?php echo $date ?>',<?php echo $airHum ?>,<?php echo $airTemp ?>],
 				<?php } ?>
 				]);
 
 			var options = {
-				title: 'Gráfico Horário x Temperatura do Ar (°C) (Últimas 100 leituras)',
+				title: 'DATE x Air Temperature (°C) (Last 100 reads)',
 				legend: { position: 'right'}
 			};
 
-			var chart = new google.visualization.LineChart(document.getElementById('graficoLinha'));
+			var chart = new google.visualization.LineChart(document.getElementById('chart1'));
 
 			chart.draw(data,options);
 		}
@@ -37,25 +37,25 @@
 
 		function drawChart2(){
 			var data = google.visualization.arrayToDataTable([
-				['Data Hora', 'Umidade do Ar'],
+				['DATE', 'Air Humidity'],
 				<?php 
 	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
-	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
-					for($i=0;$i<sizeof($dados);$i++){
-						$umidadeAr = $dados[$i]['dhumidity'];
-						$dataHora = $dados[$i]['nowf'];
+	                $data = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
+					for($i=0;$i<sizeof($data);$i++){
+						$airHum = $data[$i]['dhumidity'];
+						$date = $data[$i]['nowf'];
 				 ?>
-				 ['<?php echo ($dataHora) ?>',<?php echo ($umidadeAr) ?>],
+				 ['<?php echo ($date) ?>',<?php echo ($airHum) ?>],
 				<?php } ?>
 				]);
 
 			var options = {
-				title: 'Gráfico Horário x Umidade do Ar (%) (Últimas 100 leituras)',
+				title: 'DATE x Air Humidity (%) (Last 100 reads)',
 				legend: { position: 'right'}
 			};
 
-			var chart = new google.visualization.LineChart(document.getElementById('graficoLinha2'));
+			var chart = new google.visualization.LineChart(document.getElementById('chart2'));
 
 			chart.draw(data,options);
 		}
@@ -66,27 +66,27 @@
 
 		function drawChart3(){
 			var data = google.visualization.arrayToDataTable([
-				['Data Hora','Umidade do Ar', 'Temperatura do Ar', 'Umidade do Solo'],
+				['DATE','Air Humidity', 'Air Temperature', 'Soil Moisture'],
 				<?php 
 	                $stm= $pdo->prepare('SELECT * FROM tb_history ORDER BY id DESC LIMIT 100');
 	                $stm->execute();
-	                $dados = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
-					for($i=0;$i<sizeof($dados);$i++){
-						$temperaturaAr = $dados[$i]['dtemperature'];
-						$umidadeAr = $dados[$i]['dhumidity'];
-						$umidadeSolo = $dados[$i]['shumidity'];
-						$dataHora = $dados[$i]['nowf'];
+	                $data = array_reverse($stm->fetchAll(PDO::FETCH_ASSOC));
+					for($i=0;$i<sizeof($data);$i++){
+						$airTemp = $data[$i]['dtemperature'];
+						$airHum = $data[$i]['dhumidity'];
+						$soilMoist = $data[$i]['shumidity'];
+						$date = $data[$i]['nowf'];
 				 ?>
-				 ['<?php echo $dataHora ?>',<?php echo $umidadeAr ?>,<?php echo $temperaturaAr ?>,<?php echo $umidadeSolo ?>],
+				 ['<?php echo $date ?>',<?php echo $airHum ?>,<?php echo $airTemp ?>,<?php echo $soilMoist ?>],
 				<?php } ?>
 				]);
 
 			var options = {
-				title: 'Gráfico Geral',
+				title: 'General Data',
 				legend: { position: 'right'}
 			};
 
-			var chart = new google.visualization.LineChart(document.getElementById('graficoLinha3'));
+			var chart = new google.visualization.LineChart(document.getElementById('chart3'));
 
 			chart.draw(data,options);
 		}

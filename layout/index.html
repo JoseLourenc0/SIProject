@@ -1,23 +1,93 @@
-<head>
 	<title>Set ON OFF</title>
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<br><br>
-	<select id="selectTime">
-		<option value="1">1 min</option>
-		<option value="5">5 min</option>
-		<option value="10">10 min</option>
-		<option value="20">20 min</option>
-		<option value="40">40 min</option>
-		<option value="60">1 h</option>
-	</select>
-	<br><br>
-	<input type="submit" onclick="sendState()" value="ON/OFF"></input>
-	<br><br>
-	<div>State:</div>
-	<div id="state"></div>
 
-<script src="scripts/js/jquery-3.6.0.min.js"></script>
+	<nav class="navbar navbar-expand-custom navbar-mainbg">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<div class="hori-selector">
+					<div class="left"></div><div class="right"></div>
+				</div>
+				<li class="nav-item">
+					<a class="nav-link active" href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="charts.php"><i class="far fa-chart-bar"></i>Charts</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="scripts/php/login/logout.php"><img title="Logout" style="filter: invert(100%);" src="assets/img/logout.png" height="25px" width="25px">LOGOUT</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<br><br>
+	<h3>
+		Set Interval Reading and Turn ON/OFF Data Logging (in Min)
+		<a style="cursor: pointer;" onclick="showModal()">
+			<i class="fa fa-question-circle" aria-hidden="true"></i>
+		</a>
+	</h3>
+	<br>
+	<div class="row">
+
+		<div class="col-md-6">
+			<div class="col-md-12">
+				<select class="form-select d-inline">
+					<option value="1">1 min</option>
+					<option value="5">5 min</option>
+					<option value="10">10 min</option>
+					<option value="20">20 min</option>
+					<option value="40">40 min</option>
+					<option value="60">1 h</option>
+				</select>
+			</div>
+			<div class="col-md-12">
+				<input class="d-inline" type="submit" onclick="sendState()" value="ON/OFF"></input>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="col-md-12">
+				<label>State:</label>
+			</div>
+			<div class="col-md-12">
+				<div id="state"></div>
+			</div>
+		</div>
+	</div>
+
+	<br><br>
+	
+	<br><br>	
+
 <script src="scripts/js/index_script.js"></script>
-<div class="db_class"><a href="charts.php" target="_blank"><img src="assets/img/db.png"></a></div>
+
+<div id = "myModal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">INFO</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+			<h3>Some Information:</h3>
+			<div style="text-align: justify;">
+				<p>To set an Interval between the Reading of the Sensors connected into ESP32, you can just select on the left side and set On the Data Logging. </p>
+				<p>You can see the state of Data Logging on the right side, if it's green "<b style="color:rgb(12, 105, 33)">Data logging enabled</b>", it means that ESP32 is sending data by its sensors to the Database, if it's red "<b style="color:rgb(207, 58, 48)">Data logging disabled</b>", it means it's turned on but ESP32 won't send any data do the Database.</p>
+			</div>			
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+    const showModal = () => {
+        $("#myModal").modal('show')
+    }
+</script>
