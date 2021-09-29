@@ -55,3 +55,63 @@
 		  </nav>
 	</div>
 	<script src="scripts/js/users.js"></script>
+
+	<div class="text-light col-md-10" align="center" style="margin: 2em auto;">
+	    
+	    <form onsubmit="return false">
+			<div class="form-group row col-md-6">
+	            <div class="col-sm-12">
+	                <input type="text" class="form-control" id="name" placeholder="Name" required>
+	            </div>
+	        </div>
+	        <div class="form-group row col-md-6">
+	            <div class="col-sm-12">
+	                <input type="text" class="form-control" id="username" placeholder="Username (Used to login)" required>
+	            </div>
+	        </div>
+	        <div class="form-group row col-md-6">
+	            <div class="col-sm-12">
+	                <input type="email" class="form-control" id="email" placeholder="E-mail" required>
+	            </div>
+	        </div>
+	        <div class="form-group row col-md-6">
+	            <div class="col-sm-12">
+	                <input type="password" class="form-control" id="password" placeholder="Password" required>
+	            </div>
+	        </div>
+			<div class="form-group row col-md-6">
+	            <div class="col-sm-12">
+	                <select class="form-control col-md-12" name="select" id="permission">
+						<option value="1">1</option>
+						<option value="2">2</option>
+					</select>
+	            </div>
+	        </div>
+			<div class="form-group row col-md-6">
+				<div class="col-sm-12">
+	                <input type="submit" class="btn btn-primary col-md-12" onclick="createNewUser()" value="CREATE NEW USER">
+	            </div>
+	        </div>
+	        
+	    </form>
+	</div>
+	<div class="container" style="font-size:16px;text-align: left;">
+      <div class="row">
+        <div class="col">
+          <table class="table" >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+				<th>E-mail</th>
+                <th>Details</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="listUsers">
+            </tbody>
+            
+          </table>
+        </div>
+      </div>
+    </div>

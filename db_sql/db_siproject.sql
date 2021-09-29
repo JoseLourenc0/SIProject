@@ -22,7 +22,10 @@ CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL,
   `name` varchar(300) NOT NULL,
   `user_name` varchar(300) NOT NULL,
-  `user_password` varchar(300) NOT NULL
+  `user_email` varchar(300) NOT NULL,
+  `user_password` varchar(300) NOT NULL,
+  `user_permission` int(11) NOT NULL,
+  `creation_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `tb_state`
