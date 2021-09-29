@@ -1,47 +1,10 @@
-	body{
-		font-size: 20px;
-		margin: 0 auto;
-		text-align: center;
-	}
-	input, #state{
-		background: #575757;
-		border-radius: 4px;
-		min-height: 5em;
-	}
-	div input{
-		width: 50%;
-		margin-top: 1em;
-	}
-	[type="submit"]{
-		cursor: pointer;
-		color:#86aeeb;
-		background: #0e63e3;
-	}
-	[type="submit"]:hover{
-		transition: .4s;
-		color:#d1ddf0;
-		transform: scale(1.02,1.02);
-	}
-	#state{
-		width: 50%;
-		margin: 1em auto 0;
-		display: flex;
-		justify-content: center;
-  		align-items: center;
-	}
-	div label{
-		width: 50%;
-		padding: 1em;
-		margin: 0;
-	}
-	select , option{
-		color: #363636;
-		padding: 1em;
-		width: 50%;
-		text-align: center;
-	}
+body{
+	font-size: 20px;
+	margin: 0 auto;
+	text-align: center;
+}
 
-	@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body{
 	font-family: 'Roboto', sans-serif;
@@ -214,8 +177,4 @@ i {
 	#firstNav{
 		display: none;
 	}
-}
-.row{
-	margin-left: 0;
-	margin-right: 0;
 }

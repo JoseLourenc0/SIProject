@@ -38,7 +38,7 @@ body {
     transition: 0.25s
 }
 
-div{
+.container, .container div{
     margin: 0 auto;
     text-align: center;
 }
