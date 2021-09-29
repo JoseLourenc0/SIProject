@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 $state = addslashes($_POST['state']);
-$time = addslashes($_POST['time']);
+$time = addslashes($_POST['time']) ?? 1;
 $statephp = (int)$state;
 
 require_once 'conn.php';

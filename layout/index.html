@@ -3,24 +3,51 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-custom navbar-mainbg">
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<div class="hori-selector">
-					<div class="left"></div><div class="right"></div>
-				</div>
-				<li class="nav-item">
-					<a class="nav-link active" href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="charts.php"><i class="far fa-chart-bar"></i>Charts</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="scripts/php/login/logout.php"><img title="Logout" style="filter: invert(100%);" src="assets/img/logout.png" height="25px" width="25px">LOGOUT</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	<div id="firstNav">
+		<nav class="navbar navbar-expand-custom navbar-mainbg">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<div class="hori-selector">
+						<div class="left"></div><div class="right"></div>
+					</div>
+					<li class="nav-item">
+						<a class="nav-link active" href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="charts.php"><i class="far fa-chart-bar"></i>Charts</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="scripts/php/login/logout.php"><img title="Logout" style="filter: invert(100%);" src="assets/img/logout.png" height="25px" width="25px">LOGOUT</a>
+					</li>
+				</ul>
+			</div>
+		</nav>	
+	</div>
+	
+
+	<div id="secondNav">
+		<nav style="background-color: #5161ce;" class="navbar navbar-expand-lg navbar-dark mb-5">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+			  <div class="collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link active" href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="charts.php"><i class="far fa-chart-bar"></i>Charts</a>
+					</li>
+				</ul>
+				
+			  </div>
+			  <a id="LogoutButton" href="scripts/php/login/logout.php">
+				<img title="Logout" style="filter: invert(100%);" src="assets/img/logout.png" height="25px" width="25px">
+			  </a>
+			</div>
+		  </nav>
+	</div>
 
 	<br><br>
 	<h3>
@@ -34,7 +61,7 @@
 
 		<div class="col-md-6">
 			<div class="col-md-12">
-				<select class="form-select d-inline">
+				<select id="selectTime" class="form-select d-inline">
 					<option value="1">1 min</option>
 					<option value="5">5 min</option>
 					<option value="10">10 min</option>

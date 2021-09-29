@@ -36,10 +36,10 @@ function getESPState(){
 		method:'GET',
 		dataType: 'json'
 
-	}).done(function(resultado){
+	}).done(function(result){
 
-		if(resultado!=='State not found'){
-			isOn=resultado[0].state;
+		if(result!=='State not found'){
+			isOn=result.state
 			if(isOn==false){
 
 				document.getElementById('state').innerHTML='Data logging disabled'
@@ -48,7 +48,7 @@ function getESPState(){
 					
 			}else{
 
-				document.getElementById('state').innerHTML='Data logging enabled'
+				document.getElementById('state').innerHTML=`Data logging enabled <br> Interval: ${result.timeesp} min`
 				document.getElementById('state').style.background="#0c6921"
 				document.getElementById('state').style.color="#3ec95e"
 
@@ -126,7 +126,7 @@ jQuery(document).ready(function($){
 	target.parent().addClass('active');
 });
 
-getESPState();
+getESPState()
 setInterval(
 	function(){
 		getESPState()
